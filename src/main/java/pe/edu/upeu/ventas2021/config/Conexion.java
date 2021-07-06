@@ -14,10 +14,10 @@ import java.sql.SQLException;
  * @author alum.fial8
  */
 public class Conexion {
-    private static final String URL = "jdbc:mysql://localhost:3306/bdventas2019?serverTimezone=EST5EDT";
+    private static final String URL = "jdbc:mysql://bdventas.cpmnvlkneh1k.us-east-2.rds.amazonaws.com:3306/bdventas2021";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String USER = "root";
-    private static final String PASS = "root";
+    private static final String USER = "admin";
+    private static final String PASS = "Sistemas2021";
     private static Connection cx = null;
     public static Connection getConexion(){
         try {
