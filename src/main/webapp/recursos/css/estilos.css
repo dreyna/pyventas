@@ -1,0 +1,11 @@
+#logo,#aut{
+    padding: 20px;
+}
+.login{
+    margin: 0 auto;
+    border: 1px solid #ccc;
+   border-radius: 20px;
+   padding: 30px;
+   height: 40vh;
+}
+
