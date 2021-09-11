@@ -2,11 +2,13 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container"> 
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span> 
                 </button>
+
                 <a target="_blank" href="#" class="navbar-brand"><img src="recursos/img/ep.png" alt="" width="27" height="27"></a>
                 <input type="hidden" value="${sessionScope.rol}" id="rolcito">
             </div>

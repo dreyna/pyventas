@@ -40,18 +40,18 @@ public class RolController extends HttpServlet {
        PrintWriter out = response.getWriter();
         int op = Integer.parseInt(request.getParameter("opc"));
         switch(op){
-            case 1: out.println(g.toJson(rd.readAll()));
+            case 1: out.println(g.toJson(rd.readAll()));//lista de todos los roles
                     break;
-            case 2: out.println(g.toJson(rd.read(Integer.parseInt(request.getParameter("id")))));
+            case 2: out.println(g.toJson(rd.read(Integer.parseInt(request.getParameter("id"))))); //Lista un rol en base del ID
                     break;
            case 3:                       
 
-                    rd.create(new Rol(request.getParameter("nombrerol")));
+                    rd.create(new Rol(request.getParameter("nombrerol")));// Registra un nuevo rol
                     break;
-            case 4: Rol ro = new Rol(Integer.parseInt(request.getParameter("id")), request.getParameter("nomrol"));
+            case 4: Rol ro = new Rol(Integer.parseInt(request.getParameter("id")), request.getParameter("nomrol")); //modificar un rol
                     rd.update(ro);
                     break;
-            case 5: rd.delete(Integer.parseInt(request.getParameter("id")));
+            case 5: rd.delete(Integer.parseInt(request.getParameter("id")));//eliminar Rol
                     break;
  
         }
