@@ -12,20 +12,11 @@
         <meta http-equiv="Expires" content="0" /> 
         <meta http-equiv="Pragma" content="no-cache" />
         <title>Login</title>
-        <link href="recursos/faw/web-fonts-with-css/css/fontawesome-all.css" rel="stylesheet" type="text/css"/>
+        <link href="recursos/awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="recursos/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="recursos/css/login.css"/>
-         <script>
-            function deshabilitaRetroceso() {
-                window.location.hash = "no-back-button";
-                window.location.hash = "Again-No-back-button"; //chrome
-                window.onhashchange = function () {
-                    window.location.hash = "no-back-button";
-                };
-            }
-        </script>
     </head>
-    <body onload="deshabilitaRetroceso() ">
+    <body >
         <div class="modal-dialog text-center">
             <div class="col-sm-8 main-section">
                 <div class="modal-content">
@@ -47,6 +38,6 @@
         <script src="recursos/js/jquery.js"></script>
         <script src="recursos/js/bootstrap.min.js"></script>
         <script src="recursos/js/login.js"></script>
-       
+
     </body>
 </html>

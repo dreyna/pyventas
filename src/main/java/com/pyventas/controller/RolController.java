@@ -36,7 +36,11 @@ Gson gson = new Gson();
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
     // out.println(gson.toJson(rdao.readAll1()));
-     out.println("Gestion de Roles");
+     int op = Integer.parseInt(request.getParameter("opc"));
+     switch(op){
+         case 1:out.println(gson.toJson(rdao.readAll1()));
+             break;
+     }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

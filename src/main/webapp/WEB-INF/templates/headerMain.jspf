@@ -1,0 +1,42 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="container">
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+            <div class="list-group list-group-flush" id="menu">
+
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-light" id="sidebarToggle"><i class="fa fa-bars" aria-hidden="true"></i></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user px-2" aria-hidden="true"></i>${sessionScope.usuario}</a>
+                                <div class="dropdown-menu dropdown-menu-end py-2" aria-labelledby="navbarDropdown">
+                                    <div class="my-2 text-center">
+                                        <img src="recursos/img/user2.png" alt="alt" width="64" height="64" class="my-2" style="border-radius: 50%; border: 2px solid #cbcbcb; padding: 5px"/>
+                                        <p class="text-center font p-0 font-weight-ligh my-xl-n1">${sessionScope.nombres}</p>
+                                        <p class="text-center text-info font-italic">${sessionScope.rol}</p>
+                                        <input type="hidden" value="${sessionScope.rol}" id="rol">
+                                    </div>                                            
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item text-center text-danger" href="#!">Perfil</a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item text-center text-danger" href="#!" id="salir">Salir <i class="fa fa-sign-out  mx-3" aria-hidden="true"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid" >

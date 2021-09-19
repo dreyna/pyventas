@@ -24,6 +24,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>com.pyventas.controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MenuController</servlet-name>
+        <servlet-class>com.pyventas.controller.MenuController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RolController</servlet-name>
         <url-pattern>/rc</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MenuController</servlet-name>
+        <url-pattern>/mc</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

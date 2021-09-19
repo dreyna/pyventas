@@ -34,7 +34,7 @@ public class PrincipalController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        PrintWriter out = response.getWriter();
         RequestDispatcher dispatcher;
-        dispatcher = request.getRequestDispatcher("vista/main.jsp");
+        dispatcher = request.getRequestDispatcher("main.jsp");
             dispatcher.forward(request, response);
             System.out.println("principal");
     }
