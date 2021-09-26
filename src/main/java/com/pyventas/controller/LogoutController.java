@@ -33,11 +33,12 @@ public class LogoutController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession sesion = request.getSession();
-        RequestDispatcher dispatcher;
+        HttpSession sesion = request.getSession();        
         sesion.invalidate();
+        RequestDispatcher dispatcher;
         dispatcher = request.getRequestDispatcher("login");
         dispatcher.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

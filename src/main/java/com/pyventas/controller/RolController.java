@@ -7,6 +7,7 @@ package com.pyventas.controller;
 
 import com.google.gson.Gson;
 import com.pyventas.daoImpl.RolDaoImpl;
+import com.pyventas.entity.Rol;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -40,6 +41,15 @@ Gson gson = new Gson();
      switch(op){
          case 1:out.println(gson.toJson(rdao.readAll1()));
              break;
+         case 2:out.println(gson.toJson(rdao.create(new Rol(request.getParameter("rol")))));
+            break;
+         case 3:Rol r = new Rol();
+                r.setIdrol(Integer.parseInt(request.getParameter("idrol")));
+                r.setNomrol(request.getParameter("rol"));
+                r.setEstado(Integer.parseInt(request.getParameter("estado")));                    
+                out.println(gson.toJson(rdao.update(r))); break;
+         case 4:out.println(gson.toJson(rdao.delete(Integer.parseInt(request.getParameter("idr")))));break;
+         case 5:out.println(gson.toJson(rdao.read(Integer.parseInt(request.getParameter("idr")))));break;
      }
     }
 

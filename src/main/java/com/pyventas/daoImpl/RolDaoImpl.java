@@ -28,29 +28,85 @@ public class RolDaoImpl implements Metodos<Rol> {
     private ResultSet rs;
     private Connection cx = null;
 
+
     @Override
     public int create(Rol t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Rol Nuevo: "+t.getNomrol());
+        String SQL ="{call PKG_CRUD_ROL.SP_INS_ROL(?)}";
+        int x = 0;
+        try {
+            cx = Conexion.getConexion();
+            cstmt = cx.prepareCall(SQL);
+            cstmt.setString(1, t.getNomrol());
+            x = cstmt.executeUpdate();            
+            
+        } catch (SQLException e) {
+            System.out.println("Error Guardar: "+e);
+        }
+        return x;
     }
 
     @Override
     public int update(Rol t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL ="{call PKG_CRUD_ROL.SP_UP_ROL(?,?,?)}";
+        int x = 0;
+        try {
+            cx = Conexion.getConexion();
+            cstmt = cx.prepareCall(SQL);
+            cstmt.setInt(1, t.getIdrol());
+            cstmt.setString(2, t.getNomrol());
+            cstmt.setInt(3, t.getEstado());
+            x = cstmt.executeUpdate();            
+            
+        } catch (SQLException e) {
+            System.out.println("Error Update: "+e);
+        }
+        return x;
     }
 
     @Override
     public int delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL ="{call PKG_CRUD_ROL.SP_DEL_ROL(?)}";
+        int x = 0;
+        try {
+            cx = Conexion.getConexion();
+            cstmt = cx.prepareCall(SQL);
+            cstmt.setInt(1, id);
+            x = cstmt.executeUpdate();            
+            
+        } catch (SQLException e) {
+            System.out.println("Error Delete: "+e);
+        }
+        return x;
     }
 
     @Override
     public Rol read(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SQL = "{call PKG_CRUD_ROL.SP_BUS_ROL(?,?)}";
+        Rol rol = new Rol();
+        try {
+            cx = Conexion.getConexion();
+            cstmt = cx.prepareCall(SQL);
+            cstmt.setInt(1, id);
+            cstmt.registerOutParameter(2, OracleTypes.REF_CURSOR);
+            cstmt.execute();
+            rs = ((OracleCallableStatement)cstmt).getCursor(2);
+            while(rs.next()){      
+                rol.setIdrol(rs.getInt("idrol"));
+                rol.setNomrol(rs.getString("nomrol"));
+                rol.setEstado(rs.getInt("estado"));
+                rol.setFecha(rs.getString("fecha"));
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Error READ: "+e);
+        }
+        return rol;
     }
 
     @Override
     public List<Rol> readAll1() {
-        String SQL = "{call PKG_CRUD_ROL.SP_LISTAR_ROLES(?)}";
+        String SQL = "{call PKG_CRUD_ROL.SP_LISTAR_ROLES(?)}"; //SELECT *FROM post
         List<Rol> roles = new ArrayList<>();
         try {
             cx = Conexion.getConexion();
@@ -67,7 +123,7 @@ public class RolDaoImpl implements Metodos<Rol> {
                 roles.add(rol);
             }
         } catch (SQLException e) {
-            System.out.println("Error: "+e);
+            System.out.println("Error READALL: "+e);
         }
         return roles;
     }

@@ -31,7 +31,7 @@
                                     <div class="dropdown-divider "></div>
                                     <a class="dropdown-item text-center text-danger" href="#!">Perfil</a>
                                     <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item text-center text-danger" href="#!" id="salir">Salir <i class="fa fa-sign-out  mx-3" aria-hidden="true"></i></a>
+                                    <a class="dropdown-item text-center text-danger" href="logout">Salir <i class="fa fa-sign-out  mx-3" aria-hidden="true"></i></a>
                                 </div>
                             </li>
                         </ul>
